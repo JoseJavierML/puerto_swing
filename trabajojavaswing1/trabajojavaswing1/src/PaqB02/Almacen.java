@@ -26,8 +26,22 @@ public class Almacen extends JFrame {
     private JTextField PaisProcedencia;
     private JTextField PrioridaD;
     private JTextField CuantosPaisProcedencia;
+    private JButton pesototaldelhub;
+    private JPanel ventanaconpeso;
+    private JButton botoncerrar;
     private Puerto p;
+    public class ventanaconpeso extends JFrame {
+        public ventanaconpeso() {
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setSize(300, 200);
+            setLocationRelativeTo(null);
+            JButton boton = new JButton("Haz clic");
+            add(boton);
+            JButton cerrar = new JButton("x");
+            add(cerrar);
+        }
 
+    }
     public Almacen() {
         setContentPane(panel);
         setTitle("Gestion de contenedores");
@@ -98,6 +112,22 @@ public class Almacen extends JFrame {
             }
         });
 
+
+        botoncerrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                dispose();
+            }
+        });
+
+        pesototaldelhub.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                System.out.println("Peso total:"+pesototaldelhub+"Kg");
+                ventanaconpeso ventana = new ventanaconpeso();
+                ventana.setVisible(true);
+            }
+        });
     }
 
     public static void main(String[] args) {
